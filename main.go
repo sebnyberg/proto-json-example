@@ -1,9 +1,9 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 
+	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/sebnyberg/proto-json-example/todo"
@@ -17,7 +17,8 @@ func main() {
 		CreatedAt: ptypes.TimestampNow(),
 	}
 
-	jsonBytes, _ := json.Marshal(exampleTodo)
+	m := jsonpb.Marshaler{}
+	jsonStr, _ := m.MarshalToString(exampleTodo)
 
-	fmt.Println(string(jsonBytes))
+	fmt.Println(jsonStr)
 }
