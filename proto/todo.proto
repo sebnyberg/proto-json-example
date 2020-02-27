@@ -15,4 +15,5 @@ message Todo {
   Status status = 2;
   string content = 3;
   google.protobuf.Timestamp created_at = 4;
+  int32 external_view_count = 5;
 }

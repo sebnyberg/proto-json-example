@@ -11,13 +11,16 @@ import (
 
 func main() {
 	exampleTodo := &todo.Todo{
-		TodoId:    uuid.New().String(),
-		Status:    todo.Status_CREATED,
-		Content:   "Do stuff",
-		CreatedAt: ptypes.TimestampNow(),
+		TodoId:            uuid.New().String(),
+		Status:            todo.Status_CREATED,
+		Content:           "Do stuff",
+		CreatedAt:         ptypes.TimestampNow(),
+		ExternalViewCount: 0,
 	}
 
-	m := jsonpb.Marshaler{}
+	m := jsonpb.Marshaler{
+		EmitDefaults: true,
+	}
 	jsonStr, _ := m.MarshalToString(exampleTodo)
 
 	fmt.Println(jsonStr)
