@@ -20,6 +20,7 @@ func main() {
 
 	m := jsonpb.Marshaler{
 		EmitDefaults: true,
+		OrigName:     true,
 	}
 	jsonStr, _ := m.MarshalToString(exampleTodo)
 

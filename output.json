@@ -1,7 +1,7 @@
 {
-  "todoId": "a3897abe-b92f-469f-8a71-c3f0bff6cbb7",
+  "todo_id": "3248d1b5-5e46-4e85-bd19-a0fed255a424",
   "status": "CREATED",
   "content": "Do stuff",
-  "createdAt": "2020-02-27T09:32:09.900173Z",
-  "externalViewCount": 0
+  "created_at": "2020-02-27T09:32:44.151172Z",
+  "external_view_count": 0
 }
