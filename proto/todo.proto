@@ -4,6 +4,8 @@ package todo;
 
 import "google/protobuf/timestamp.proto";
 
+option go_package = "github.com/sebnyberg/proto-json-example/todo;todo";
+
 enum Status {
   STATUS_UNSET = 0;
   CREATED = 1;

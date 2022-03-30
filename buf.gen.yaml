@@ -1,0 +1,5 @@
+version: v1
+plugins:
+  - remote: buf.build/protocolbuffers/plugins/go
+    out: todo
+    opt: paths=source_relative

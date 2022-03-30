@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 
-	"github.com/gogo/protobuf/jsonpb"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/sebnyberg/proto-json-example/todo"
+	"google.golang.org/protobuf/encoding/protojson"
 )
 
 func main() {
@@ -18,11 +19,15 @@ func main() {
 		ExternalViewCount: 0,
 	}
 
-	m := jsonpb.Marshaler{
-		EmitDefaults: true,
-		OrigName:     true,
+	m := protojson.MarshalOptions{
+		EmitUnpopulated: true,
+		UseProtoNames:   true,
+		Multiline:       true,
+		Indent:          "  ",
 	}
-	jsonStr, _ := m.MarshalToString(exampleTodo)
-
-	fmt.Println(jsonStr)
+	jsonBytes, err := m.Marshal(exampleTodo)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Printf("%s\n", jsonBytes)
 }
